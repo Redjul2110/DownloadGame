@@ -4,6 +4,18 @@ function showSection(section) {
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   document.getElementById('nav-' + section).classList.add('active');
 }
+
+// Automatisches Scrollen zu Sektionen bei Klick auf Menü
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = this.getAttribute('href').replace('#', '');
+    showSection(target);
+    document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
 function downloadFile() {
   // Passe den Pfad ggf. an, wenn sich der Ordner oder Dateiname ändert!
   const fileUrl = 'game/Jumper.exe'; 
