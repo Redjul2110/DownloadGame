@@ -118,7 +118,7 @@ h2:hover {
 }
 .section {
   display: block;
-  margin-bottom: 5cm; /* Abstand zwischen den Bereichen auf 5cm erhöht */
+  margin-bottom: 10cm; /* Abstand zwischen den Bereichen auf 5cm erhöht */
 }
 .logo {
   height: 48px;
