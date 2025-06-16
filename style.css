@@ -18,7 +18,7 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3.5rem; /* Abstand zwischen den Menüpunkten erhöht */
 }
 nav a {
   color: #f1f1f1;
@@ -26,10 +26,11 @@ nav a {
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
 }
 nav a.active, nav a:hover {
   background: #40444b;
+  transform: scale(1.09);
 }
 main {
   max-width: 600px;
@@ -51,14 +52,15 @@ h1, h2 {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
 }
 .download-btn:hover {
   background: #4752c4;
+  transform: scale(1.07);
 }
 .section {
   display: block;
-  margin-bottom: 3rem;
+  margin-bottom: 5cm; /* Abstand zwischen den Bereichen auf 5cm erhöht */
 }
 .logo {
   height: 48px;
@@ -67,10 +69,48 @@ h1, h2 {
   margin-right: 1rem;
   box-shadow: 0 2px 8px #0005;
   background: #fff1;
+  transition: box-shadow 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
+}
+.logo:hover {
+  box-shadow: 0 4px 24px #5865f299, 0 0 0 3px #5865f2cc;
+  transform: scale(1.08);
 }
 .spiel-vorschau {
   max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 2px 8px #0005;
   margin-bottom: 1rem;
+}
+.spiel-vorschau-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+  background: #292d33;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px #0005, 0 0 0 3px #5865f233;
+  padding: 1.5rem 2rem;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
+}
+.spiel-vorschau-block:hover {
+  box-shadow: 0 8px 32px #5865f299, 0 0 0 3px #5865f2cc;
+  background: #23272a;
+  transform: scale(1.04);
+}
+.spiel-vorschau.klein {
+  max-width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  align-self: center;
+}
+.spiel-beschreibung {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  margin: 0.5rem 0 0.5rem 0;
+  align-self: stretch;
+}
+.download-btn {
+  align-self: flex-end;
+  margin-top: 0.5rem;
 }
