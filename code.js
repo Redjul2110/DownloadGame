@@ -74,7 +74,7 @@ const spiele = [
   {
     titel: 'Jumper.exe',
     bilder: ['gameicon/1.png', 'gameicon/2.png', 'gameicon/3.png'],
-    beschreibung: "Ein klassisches Jump'n'Run-Spiel das komplet Kostenlos ist weitere updates sind geplant!",
+    beschreibung: "Ein klassisches Jump'n'Run-Spiel das komplet Kostenlos ist weitere updates sind geplant! Windows 11",
     download: 'game/Jumper.exe'
   },
   // Beispiel für ein weiteres Spiel:
