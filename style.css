@@ -7,6 +7,10 @@ body {
   scroll-behavior: smooth;
 }
 header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10002;
   background: #23272a;
   padding: 1rem 0;
   box-shadow: 0 2px 8px #0002;
@@ -241,4 +245,7 @@ h1 + p {
   .section {
     margin-bottom: 2.2rem;
   }
+}
+.menu-toggle, .side-menu {
+  display: none !important;
 }

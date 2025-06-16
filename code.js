@@ -119,6 +119,33 @@ function renderSpiele() {
   });
 }
 
+// Mobile Menü-Button und Side-Menu Funktionalität
 window.addEventListener('DOMContentLoaded', () => {
   renderSpiele();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const sideMenu = document.getElementById('side-menu');
+  const sideNavLinks = sideMenu.querySelectorAll('nav a');
+
+  menuToggle.addEventListener('click', () => {
+    sideMenu.classList.toggle('open');
+  });
+
+  // Side-Menu schließt sich beim Klick auf einen Link
+  sideNavLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.getAttribute('href').replace('#', '');
+      setActiveNav(target);
+      document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+      sideMenu.classList.remove('open');
+    });
+  });
+
+  // Schließt das Menü beim Klick außerhalb
+  document.addEventListener('click', function(e) {
+    if (sideMenu.classList.contains('open') && !sideMenu.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
+      sideMenu.classList.remove('open');
+    }
+  });
 });
