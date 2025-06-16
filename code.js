@@ -68,3 +68,57 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// === Dynamische Spiele-Liste ===
+const spiele = [
+  {
+    titel: 'Jumper.exe',
+    bilder: ['gameicon/1.png', 'gameicon/2.png', 'gameicon/3.png'],
+    beschreibung: "Ein klassisches Jump'n'Run-Spiel mit spannenden Levels und einfacher Steuerung. Perfekt für zwischendurch!",
+    download: 'game/Jumper.exe'
+  },
+  // Beispiel für ein weiteres Spiel:
+  // {
+  //   titel: 'Jumper 2.exe',
+  //   bilder: ['gameicon/4.png', 'gameicon/5.png', 'gameicon/6.png'],
+  //   beschreibung: "Der Nachfolger mit neuen Features und noch mehr Spaß!",
+  //   download: 'game/Jumper2.exe'
+  // }
+];
+
+function renderSpiele() {
+  const liste = document.getElementById('spiele-liste');
+  liste.innerHTML = '';
+  spiele.forEach(spiel => {
+    const block = document.createElement('div');
+    block.className = 'spiel-vorschau-block';
+    let bilderHtml = spiel.bilder.map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
+    block.innerHTML = `
+      <div class="spiel-vorschau-bilder">${bilderHtml}</div>
+      <div class="spiel-beschreibung">
+        <strong>${spiel.titel}</strong><br>
+        ${spiel.beschreibung}
+      </div>
+      <button class="download-btn">Download ${spiel.titel}</button>
+    `;
+    block.querySelectorAll('.spiel-vorschau').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() {
+        createImageModal(this.src, spiel.titel + ' Vorschau');
+      });
+    });
+    block.querySelector('.download-btn').addEventListener('click', function() {
+      const a = document.createElement('a');
+      a.href = spiel.download;
+      a.download = spiel.titel;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+    liste.appendChild(block);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  renderSpiele();
+});
