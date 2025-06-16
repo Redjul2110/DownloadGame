@@ -9,6 +9,14 @@ navLinks.forEach(link => {
     e.preventDefault();
     const target = this.getAttribute('href').replace('#', '');
     setActiveNav(target);
+    // Wenn Home, dann zur h1-Überschrift scrollen
+    if (target === 'home') {
+      const heading = document.querySelector('#home h1');
+      if (heading) {
+        heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+    }
     document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
   });
 });
