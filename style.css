@@ -185,3 +185,60 @@ h1 + p {
   color: #dbe6ff;
   font-weight: 500;
 }
+@media (max-width: 700px) {
+  main {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0.5rem 0.5vw;
+  }
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.7rem 0;
+  }
+  .logo {
+    height: 38px;
+    width: 38px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  nav {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .spiel-vorschau-block {
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .spiel-vorschau-bilder {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+  .spiel-vorschau.klein {
+    max-width: 80px;
+  }
+  h1 {
+    font-size: 2.1rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h1 + p {
+    font-size: 1.05rem;
+    margin-top: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .download-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+  .spiel-beschreibung {
+    font-size: 0.98rem;
+    margin-right: 0;
+  }
+  .section {
+    margin-bottom: 2.2rem;
+  }
+}
