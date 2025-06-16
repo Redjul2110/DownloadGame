@@ -26,19 +26,28 @@ nav a {
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
+  transition: background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0), box-shadow 0.2s;
+  box-shadow: 0 0 0 0px #5865f233;
 }
 nav a.active, nav a:hover {
   background: #40444b;
+  box-shadow: 0 0 0 3px #5865f2cc, 0 4px 24px #5865f233;
   transform: scale(1.09);
 }
 main {
-  max-width: 600px;
+  max-width: 1600px;
+  width: 96vw;
   margin: 2rem auto;
   background: #222326;
   border-radius: 10px;
   box-shadow: 0 4px 24px #0003;
-  padding: 2rem;
+  padding: 2rem 2vw;
+}
+@media (max-width: 900px) {
+  main {
+    max-width: 98vw;
+    padding: 1rem 1vw;
+  }
 }
 h1, h2 {
   color: #f1f1f1;
