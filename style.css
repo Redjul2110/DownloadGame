@@ -57,10 +57,8 @@ h1, h2 {
   background: #4752c4;
 }
 .section {
-  display: none;
-}
-.section.active {
   display: block;
+  margin-bottom: 3rem;
 }
 .logo {
   height: 48px;
@@ -69,4 +67,10 @@ h1, h2 {
   margin-right: 1rem;
   box-shadow: 0 2px 8px #0005;
   background: #fff1;
+}
+.spiel-vorschau {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0005;
+  margin-bottom: 1rem;
 }

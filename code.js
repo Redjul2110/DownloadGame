@@ -1,17 +1,14 @@
-function showSection(section) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(section).classList.add('active');
+function setActiveNav(section) {
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   document.getElementById('nav-' + section).classList.add('active');
 }
 
-// Automatisches Scrollen zu Sektionen bei Klick auf Menü
 const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     const target = this.getAttribute('href').replace('#', '');
-    showSection(target);
+    setActiveNav(target);
     document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
   });
 });
