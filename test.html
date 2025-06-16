@@ -1,0 +1,13 @@
+<button onclick="downloadFile()">Download Jumper.exe</button>
+<script>
+function downloadFile() {
+  // Passe den Pfad ggf. an, wenn sich der Ordner oder Dateiname ändert!
+  const fileUrl = 'game/Jumper.exe'; 
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.download = 'Jumper.exe';
+  document.body.appendChild(a); // für Firefox-Support
+  a.click();
+  document.body.removeChild(a);
+}
+</script>
