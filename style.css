@@ -101,6 +101,12 @@ h2:hover {
   text-shadow: 0 8px 32px #5865f2cc, 0 0 1em #5865f2cc;
   transform: scale(1.07);
 }
+#sonstiges h2,
+#sonstiges h2:hover {
+  font-size: 3.2rem;
+  text-shadow: 0 4px 24px #5865f299, 0 0 0.5em #5865f2cc;
+  transform: none;
+}
 .download-btn {
   background: #5865f2;
   color: #fff;
@@ -248,4 +254,25 @@ h1 + p {
 }
 .menu-toggle, .side-menu {
   display: none !important;
+}
+#spiele-suche-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+#spiele-suche {
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 8px #0003;
+  width: 480px;
+  max-width: 98vw;
+  background: #23272a;
+  color: #f1f1f1;
+}
+#spiele-suche::placeholder {
+  color: #bfc8e6;
+  opacity: 1;
 }

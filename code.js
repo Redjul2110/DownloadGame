@@ -83,7 +83,7 @@ const spiele = [
     titel: "Jumper.exe",
     beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos.",
     bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
-    downloadText: "Widowas11: Download", // <--- Hier geändert
+    downloadText: "Widows11: Download", // <--- Hier geändert
     downloadDatei: "Jumper.exe",
     downloadPfad: "game/Jumper.exe"
   },
@@ -96,10 +96,10 @@ const spiele = [
   // }
 ];
 
-function renderSpiele() {
+function renderSpiele(listeSpiele = spiele) {
   const liste = document.getElementById('spiele-liste');
   liste.innerHTML = '';
-  spiele.forEach(spiel => {
+  listeSpiele.forEach(spiel => {
     const block = document.createElement('div');
     block.className = 'spiel-vorschau-block';
     let bilderHtml = spiel.bilder.map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
@@ -158,4 +158,47 @@ window.addEventListener('DOMContentLoaded', () => {
       sideMenu.classList.remove('open');
     }
   });
+
+  // Suchleiste bei Hover auf Spiele-Überschrift ein-/ausblenden
+  const spieleUeberschrift = document.getElementById('spiele-ueberschrift');
+  const sucheContainer = document.getElementById('spiele-suche-container');
+  if (spieleUeberschrift && sucheContainer) {
+    spieleUeberschrift.addEventListener('mouseenter', () => {
+      sucheContainer.style.display = 'flex';
+    });
+    spieleUeberschrift.addEventListener('mouseleave', () => {
+      setTimeout(() => {
+        if (!sucheContainer.matches(':hover')) {
+          sucheContainer.style.display = 'none';
+        }
+      }, 200);
+    });
+    sucheContainer.addEventListener('mouseenter', () => {
+      sucheContainer.style.display = 'flex';
+    });
+    sucheContainer.addEventListener('mouseleave', () => {
+      sucheContainer.style.display = 'none';
+    });
+    // Beim Laden einmal anzeigen, damit User weiß, dass es die Suche gibt
+    setTimeout(() => {
+      sucheContainer.style.display = 'flex';
+      setTimeout(() => {
+        if (!sucheContainer.matches(':hover') && !spieleUeberschrift.matches(':hover')) {
+          sucheContainer.style.display = 'none';
+        }
+      }, 2500);
+    }, 500);
+  }
+
+  // Suchfunktion für die Spiele-Liste (nur Titel)
+  const suchInput = document.getElementById('spiele-suche');
+  if (suchInput) {
+    suchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const gefiltert = spiele.filter(spiel =>
+        spiel.titel.toLowerCase().includes(query)
+      );
+      renderSpiele(gefiltert);
+    });
+  }
 });
