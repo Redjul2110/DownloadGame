@@ -391,11 +391,27 @@ body.light-mode h1 + p {
 }
 /* Größere Schrift für normalen Text auf Desktop/Laptop, aber nicht für Überschriften */
 @media (min-width: 900px) {
-  body, main, nav, .spiel-beschreibung, p, li, .download-counter {
+  body, main, nav, .spiel-beschreibung, p, li, .download-counter, .download-counter span {
     font-size: 1.18rem;
   }
   h1, h2, h3, h4, h5, h6 {
     font-size: revert;
+  }
+  #mode-toggle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.3em 1.1em;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    color: #f1f1f1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: inline-block;
+  }
+  body.light-mode #mode-toggle {
+    color: #23272a;
   }
 }
 /* Überschrift "Spiele" wieder größer machen */
