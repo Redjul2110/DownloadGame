@@ -102,7 +102,7 @@ function renderSpiele(listeSpiele = spiele) {
   listeSpiele.forEach(spiel => {
     const block = document.createElement('div');
     block.className = 'spiel-vorschau-block';
-    let bilderHtml = spiel.bilder.map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
+    let bilderHtml = (spiel.bilder || []).map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
     block.innerHTML = `
       <div class="spiel-vorschau-bilder">${bilderHtml}</div>
       <div class="spiel-beschreibung">
@@ -190,13 +190,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  // Suchfunktion für die Spiele-Liste (nur Titel)
+  // Suchfunktion für die Spiele-Liste (Titel muss mit Suchtext beginnen)
   const suchInput = document.getElementById('spiele-suche');
   if (suchInput) {
     suchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase();
+      const query = this.value.trim().toLowerCase();
+      if (!query) {
+        renderSpiele(spiele);
+        return;
+      }
       const gefiltert = spiele.filter(spiel =>
-        spiel.titel.toLowerCase().includes(query)
+        spiel.titel && spiel.titel.toLowerCase().startsWith(query)
       );
       renderSpiele(gefiltert);
     });

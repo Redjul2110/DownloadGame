@@ -59,6 +59,10 @@ h1, h2 {
   letter-spacing: 0.02em;
   margin-bottom: 0.7em;
   text-shadow: 0 4px 24px #5865f299, 0 0 0.5em #5865f2cc;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 h1 {
   font-size: 3.2rem;
@@ -106,6 +110,10 @@ h2:hover {
   font-size: 3.2rem;
   text-shadow: 0 4px 24px #5865f299, 0 0 0.5em #5865f2cc;
   transform: none;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 .download-btn {
   background: #5865f2;
@@ -255,24 +263,6 @@ h1 + p {
 .menu-toggle, .side-menu {
   display: none !important;
 }
-#spiele-suche-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.2rem;
-}
-#spiele-suche {
-  padding: 0.6rem 1rem;
-  font-size: 1.1rem;
-  border-radius: 7px;
-  border: none;
-  outline: none;
-  box-shadow: 0 2px 8px #0003;
-  width: 480px;
-  max-width: 98vw;
-  background: #23272a;
-  color: #f1f1f1;
-}
-#spiele-suche::placeholder {
-  color: #bfc8e6;
-  opacity: 1;
+#spiele-suche-container, #spiele-suche {
+  display: none !important;
 }
