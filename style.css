@@ -151,6 +151,14 @@ h2:hover {
 .section {
   display: block;
   margin-bottom: 10cm; /* Abstand zwischen den Bereichen auf 5cm erhöht */
+  transition: opacity 0.5s, filter 0.5s;
+  opacity: 1;
+  filter: none;
+}
+.section.hide {
+  opacity: 0;
+  filter: blur(8px);
+  pointer-events: none;
 }
 .logo {
   height: 48px;
@@ -181,12 +189,29 @@ h2:hover {
   border-radius: 14px;
   box-shadow: 0 4px 24px #0005, 0 0 0 3px #5865f233;
   padding: 1.5rem 2rem;
-  transition: box-shadow 0.2s, background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0);
+  transition: box-shadow 0.2s, background 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.0), opacity 0.3s, filter 0.3s;
+  opacity: 0;
+  filter: blur(8px);
+  animation: fadeInBlock 0.7s cubic-bezier(.4,1.4,.6,1.0) forwards;
 }
-.spiel-vorschau-block:hover {
-  box-shadow: 0 8px 32px #5865f299, 0 0 0 3px #5865f2cc;
-  background: #23272a;
-  transform: scale(1.04);
+@keyframes fadeInBlock {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.image-modal-anim {
+  animation: modalFadeIn 0.35s cubic-bezier(.4,1.4,.6,1.0);
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .spiel-vorschau-bilder {
   display: flex;
@@ -283,4 +308,98 @@ h1 + p {
 }
 #spiele-suche-container, #spiele-suche {
   display: none !important;
+}
+body.light-mode {
+  background: #f5f6fa;
+  color: #23272a;
+}
+body.light-mode main {
+  background: #fff;
+  box-shadow: 0 4px 24px #0001;
+}
+body.light-mode header {
+  background: #e3e7ef;
+  box-shadow: 0 2px 8px #0001;
+}
+body.light-mode nav a {
+  color: #23272a;
+}
+body.light-mode nav a.active, body.light-mode nav a:hover {
+  background: #dbe6ff;
+  box-shadow: 0 0 0 3px #5865f2cc, 0 4px 24px #5865f233;
+}
+body.light-mode .spiel-vorschau-block {
+  background: #f3f6fd;
+  box-shadow: 0 4px 24px #0001, 0 0 0 3px #5865f233;
+}
+body.light-mode .spiel-vorschau-block:hover {
+  background: #e3e7ef;
+}
+body.light-mode .download-btn {
+  background: #5865f2;
+  color: #fff;
+}
+body.light-mode .download-btn:hover {
+  background: #4752c4;
+}
+body.light-mode .spiel-vorschau.klein {
+  background: #e3e7ef;
+}
+body.light-mode h2,
+body.light-mode #spiele-ueberschrift,
+body.light-mode #spiele-liste strong,
+body.light-mode #spiele-liste .spiel-beschreibung,
+body.light-mode #spiele-liste p,
+body.light-mode #spiele-liste .download-counter {
+  color: #181a1b;
+}
+body.light-mode #spiele-liste .spiel-beschreibung {
+  background: none;
+}
+body.light-mode #spiele-ueberschrift {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  color: #181a1b;
+}
+body.light-mode #spiele-liste strong {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  color: #181a1b;
+}
+#mode-toggle {
+  margin-left: 2rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #f1f1f1;
+  transition: color 0.2s;
+  padding: 0.3em 1.1em;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+body.light-mode #mode-toggle {
+  color: #23272a;
+}
+body.light-mode h1 + p {
+  color: #181a1a;
+}
+/* Größere Schrift für normalen Text auf Desktop/Laptop, aber nicht für Überschriften */
+@media (min-width: 900px) {
+  body, main, nav, .spiel-beschreibung, .download-btn, p, li, span, .download-counter {
+    font-size: 1.18rem;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: revert;
+  }
+}
+/* Überschrift "Spiele" wieder größer machen */
+#spiele-ueberschrift {
+  font-size: 3.7rem !important;
+  line-height: 1.1;
 }
