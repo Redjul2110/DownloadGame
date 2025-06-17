@@ -80,10 +80,12 @@ window.addEventListener('DOMContentLoaded', () => {
 // === Dynamische Spiele-Liste ===
 const spiele = [
   {
-    titel: 'Jumper.exe',
-    bilder: ['gameicon/1.png', 'gameicon/2.png', 'gameicon/3.png'],
-    beschreibung: "Ein klassisches Jump'n'Run-Spiel das komplet Kostenlos ist weitere updates sind geplant! Windows 11",
-    download: 'game/Jumper.exe'
+    titel: "Jumper.exe",
+    beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos.",
+    bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
+    downloadText: "Widowas11: Download", // <--- Hier geändert
+    downloadDatei: "Jumper.exe",
+    downloadPfad: "game/Jumper.exe"
   },
   // Beispiel für ein weiteres Spiel:
   // {
@@ -107,7 +109,7 @@ function renderSpiele() {
         <strong>${spiel.titel}</strong><br>
         ${spiel.beschreibung}
       </div>
-      <button class="download-btn">Download ${spiel.titel}</button>
+      <button class="download-btn">${spiel.downloadText || ('Download ' + spiel.titel)}</button>
     `;
     block.querySelectorAll('.spiel-vorschau').forEach(img => {
       img.style.cursor = 'zoom-in';
@@ -117,8 +119,8 @@ function renderSpiele() {
     });
     block.querySelector('.download-btn').addEventListener('click', function() {
       const a = document.createElement('a');
-      a.href = spiel.download;
-      a.download = spiel.titel;
+      a.href = spiel.downloadPfad;
+      a.download = spiel.downloadDatei;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
