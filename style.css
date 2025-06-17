@@ -391,7 +391,7 @@ body.light-mode h1 + p {
 }
 /* Größere Schrift für normalen Text auf Desktop/Laptop, aber nicht für Überschriften */
 @media (min-width: 900px) {
-  body, main, nav, .spiel-beschreibung, .download-btn, p, li, span, .download-counter {
+  body, main, nav, .spiel-beschreibung, p, li, .download-counter {
     font-size: 1.18rem;
   }
   h1, h2, h3, h4, h5, h6 {
