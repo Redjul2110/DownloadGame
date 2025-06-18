@@ -511,3 +511,16 @@ body.light-mode h1 + p {
     height: 1.5em;
   }
 }
+body.light-mode #sonstiges .discord-link {
+  background: #e3e7ef;
+  color: #5865f2;
+  box-shadow: 0 2px 8px #5865f233;
+}
+body.light-mode #sonstiges .discord-link:hover {
+  background: #5865f2;
+  color: #fff;
+  box-shadow: 0 4px 24px #5865f299;
+}
+body.light-mode #sonstiges .discord-link img.discord-img {
+  background: #fff;
+}
