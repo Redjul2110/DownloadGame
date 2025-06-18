@@ -512,9 +512,10 @@ body.light-mode h1 + p {
   }
 }
 body.light-mode #sonstiges .discord-link {
-  background: #e3e7ef;
+  background: #fff;
   color: #5865f2;
   box-shadow: 0 2px 8px #5865f233;
+  border: 1.5px solid #e3e7ef;
 }
 body.light-mode #sonstiges .discord-link:hover {
   background: #5865f2;
@@ -523,4 +524,21 @@ body.light-mode #sonstiges .discord-link:hover {
 }
 body.light-mode #sonstiges .discord-link img.discord-img {
   background: #fff;
+}
+.spiel-vorschau-block:hover {
+  box-shadow: 0 8px 32px #5865f299, 0 0 0 4px #5865f2cc;
+  transform: scale(1.025); /* Kein rotate mehr */
+  background: linear-gradient(100deg, #23272f 80%, #5865f222 100%);
+  transition: box-shadow 0.22s, transform 0.22s cubic-bezier(.4,1.4,.6,1.0), background 0.22s;
+}
+.spiel-vorschau-block:hover .spiel-vorschau.klein {
+  filter: brightness(1.08) drop-shadow(0 0 12px #5865f299);
+  transform: scale(1.04); /* Kein rotate mehr */
+  transition: filter 0.22s, transform 0.22s cubic-bezier(.4,1.4,.6,1.0);
+}
+.spiel-vorschau-block:hover .spiel-beschreibung,
+.spiel-vorschau-block:hover strong {
+  color: #8daaff;
+  text-shadow: 0 2px 12px #5865f288;
+  transition: color 0.22s, text-shadow 0.22s;
 }

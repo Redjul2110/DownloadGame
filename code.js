@@ -128,9 +128,13 @@ if (modeToggle) {
     const isLight = document.body.classList.contains('light-mode');
     setMode(isLight ? 'dark' : 'light');
   });
-  // Beim Laden Modus setzen
-  const saved = localStorage.getItem('colorMode');
-  setMode(saved === 'light' ? 'light' : 'dark');
+  // Beim Laden Modus setzen: Immer Dark Mode als Standard beim ersten Laden
+  let saved = localStorage.getItem('colorMode');
+  if (!saved) {
+    setMode('dark'); // Setzt und speichert dark als Standard
+  } else {
+    setMode(saved === 'light' ? 'light' : 'dark');
+  }
 }
 
 // Download-Zähler (lokal)
