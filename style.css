@@ -438,3 +438,58 @@ body.light-mode h1 + p {
     right: 12px;
   }
 }
+/* Discord-Link im Bereich Sonstiges optisch verbessern */
+#sonstiges .discord-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-weight: 700;
+  color: #5865f2;
+  text-decoration: none;
+  font-size: 1.45rem;
+  margin-top: 1.5em;
+  background: #23272a;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  box-shadow: 0 2px 8px #5865f233;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+#sonstiges .discord-link:hover {
+  background: #5865f2;
+  color: #fff;
+  box-shadow: 0 4px 24px #5865f299;
+  transform: scale(1.05);
+}
+#sonstiges .discord-link svg {
+  vertical-align: middle;
+  width: 2.1em;
+  height: 2.1em;
+}
+#sonstiges .discord-link img.discord-img {
+  width: 2.1em;
+  height: 2.1em;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #5865f233;
+  background: #fff;
+  object-fit: contain;
+  margin-right: 0.1em;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+#sonstiges .discord-link:hover img.discord-img {
+  box-shadow: 0 4px 24px #5865f299;
+  transform: scale(1.08);
+}
+@media (max-width: 700px) {
+  #sonstiges .discord-link {
+    font-size: 1.1rem;
+    padding: 0.5em 0.7em;
+  }
+  #sonstiges .discord-link svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  #sonstiges .discord-link img.discord-img {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
