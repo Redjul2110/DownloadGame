@@ -148,6 +148,24 @@ h2:hover {
   background: #4752c4;
   transform: scale(1.07);
 }
+.download-hinweis {
+  color: #8ea1e1;
+  font-size: 1.08rem;
+  margin-top: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: right;
+  transition: color 0.18s;
+}
+.download-btn:hover + .download-hinweis {
+  color: #5865f2;
+}
+@media (max-width: 700px) {
+  .download-hinweis {
+    font-size: 0.98rem;
+    text-align: left;
+  }
+}
 .section {
   display: block;
   margin-bottom: 10cm; /* Abstand zwischen den Bereichen auf 5cm erhöht */

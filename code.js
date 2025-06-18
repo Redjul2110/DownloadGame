@@ -150,8 +150,6 @@ function renderSpiele(listeSpiele = spiele) {
     const block = document.createElement('div');
     block.className = 'spiel-vorschau-block';
     let bilderHtml = (spiel.bilder || []).map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
-    const dlKey = spiel.titel.replace(/[^a-z0-9]/gi, '').toLowerCase();
-    const dlCount = getDownloadCount(dlKey);
     block.innerHTML = `
       <div class="spiel-vorschau-bilder">${bilderHtml}</div>
       <div class="spiel-beschreibung">
@@ -159,7 +157,7 @@ function renderSpiele(listeSpiele = spiele) {
         ${spiel.beschreibung}
       </div>
       <button class="download-btn">${spiel.downloadText || ('Download ' + spiel.titel)}</button>
-      <div class="download-counter">Downloads: <span id="dl-count-${dlKey}">${dlCount}</span></div>
+      <div class="download-hinweis">Bitte auf Download clicken &rarr;</div>
     `;
     block.querySelectorAll('.spiel-vorschau').forEach(img => {
       img.style.cursor = 'zoom-in';
@@ -174,10 +172,6 @@ function renderSpiele(listeSpiele = spiele) {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      // Zähler erhöhen
-      const newCount = incDownloadCount(dlKey);
-      const counter = block.querySelector(`#dl-count-${dlKey}`);
-      if (counter) counter.textContent = newCount;
     });
     liste.appendChild(block);
   });
