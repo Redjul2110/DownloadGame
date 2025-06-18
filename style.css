@@ -200,19 +200,6 @@ h2:hover {
     filter: blur(0);
   }
 }
-.image-modal-anim {
-  animation: modalFadeIn 0.35s cubic-bezier(.4,1.4,.6,1.0);
-}
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 .spiel-vorschau-bilder {
   display: flex;
   gap: 1.2rem;
@@ -383,6 +370,12 @@ body.light-mode #spiele-liste strong {
   border-radius: 6px;
   letter-spacing: 0.04em;
 }
+#mode-toggle:hover {
+  background: #5865f2;
+  color: #fff;
+  box-shadow: 0 0 0 3px #5865f2cc, 0 4px 24px #5865f233;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
 body.light-mode #mode-toggle {
   color: #23272a;
 }
@@ -418,4 +411,30 @@ body.light-mode h1 + p {
 #spiele-ueberschrift {
   font-size: 3.7rem !important;
   line-height: 1.1;
+}
+/* Modernes blaues SVG-Kreuz für das Bild-Modal */
+.image-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10001;
+  transition: transform 0.18s;
+  outline: none;
+}
+.image-modal-close svg {
+  display: block;
+  pointer-events: none;
+}
+.image-modal-close:focus {
+  outline: 2px solid #5865f2;
+}
+@media (max-width: 700px) {
+  .image-modal-close {
+    top: 12px;
+    right: 12px;
+  }
 }

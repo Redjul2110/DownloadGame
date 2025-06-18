@@ -58,12 +58,27 @@ function createImageModal(src, alt) {
   img.style.boxShadow = '0 8px 32px #000b';
   img.style.background = '#222';
   img.style.objectFit = 'contain';
+  img.style.transform = 'scale(0.85)';
+  img.style.opacity = '0';
+  img.style.transition = 'transform 0.6s cubic-bezier(.4,1.4,.6,1.0), opacity 0.6s cubic-bezier(.4,1.4,.6,1.0)';
 
   overlay.appendChild(img);
   document.body.appendChild(overlay);
 
-  overlay.addEventListener('click', () => {
-    overlay.remove();
+  // Animation nach kleinem Timeout triggern
+  setTimeout(() => {
+    img.style.transform = 'scale(1)';
+    img.style.opacity = '1';
+  }, 10);
+
+  function closeModal() {
+    img.style.transform = 'scale(0.5)';
+    img.style.opacity = '0';
+    setTimeout(() => overlay.remove(), 600);
+  }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
   });
 }
 
