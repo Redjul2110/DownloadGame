@@ -655,4 +655,9 @@ body.light-mode #sonstiges .discord-link img.discord-img {
     padding: 1.2rem 0.7rem 1rem 0.7rem;
     width: 95vw;
   }
+  .changelog-btn {
+    font-size: 0.95rem;
+    padding: 0.5em 1.1em;
+    margin-bottom: 1.2rem;
+  }
 }
