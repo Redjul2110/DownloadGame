@@ -560,6 +560,12 @@ body.light-mode #sonstiges .discord-link img.discord-img {
   box-shadow: 0 2px 8px #5865f233;
   cursor: pointer;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+  position: relative;
+}
+.changelog-btn span {
+  color: inherit;
+  font: inherit;
+  position: static;
 }
 .changelog-btn:hover {
   background: #4752c4;
