@@ -289,18 +289,4 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Change Look Button & Modal Funktionalität
-const changelogBtn = document.getElementById('changelog-btn');
-const changelogModal = document.getElementById('changelog-modal');
-const changelogOk = document.getElementById('changelog-ok');
-if (changelogBtn && changelogModal && changelogOk) {
-  changelogBtn.addEventListener('click', () => {
-    changelogModal.classList.add('open');
-  });
-  changelogOk.addEventListener('click', () => {
-    changelogModal.classList.remove('open');
-  });
-  changelogModal.addEventListener('click', (e) => {
-    if (e.target === changelogModal) changelogModal.classList.remove('open');
-  });
-}
+// Change Look Button & Modal Funktionalität (veraltet, entfernt)
