@@ -259,8 +259,13 @@ h1 + p {
   }
   header {
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.7rem 0;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 0 0.7rem 0;
+  }
+  nav {
+    gap: 2.2rem;
+    margin-bottom: 0.2rem;
   }
   .logo {
     height: 38px;
@@ -541,4 +546,113 @@ body.light-mode #sonstiges .discord-link img.discord-img {
   color: #8daaff;
   text-shadow: 0 2px 12px #5865f288;
   transition: color 0.22s, text-shadow 0.22s;
+}
+.changelog-btn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.7em 2em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: #5865f2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #5865f233;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+.changelog-btn:hover {
+  background: #4752c4;
+  transform: scale(1.06);
+}
+.changelog-modal {
+  /* Hintergrund komplett transparent */
+  background: transparent;
+  /* Flexbox für perfekte Zentrierung */
+  position: fixed;
+  z-index: 10010;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.changelog-modal:not(.open) {
+  display: none;
+}
+.changelog-modal.open {
+  display: flex;
+}
+.changelog-modal-content {
+  background: #23272a;
+  color: #f1f1f1;
+  border-radius: 14px;
+  padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+  box-shadow: 0 8px 32px #000b;
+  max-width: 95vw;
+  width: 400px;
+  text-align: center;
+  margin: 0;
+  animation: popupIn 0.38s cubic-bezier(.4,1.4,.6,1.0);
+  position: static;
+}
+@keyframes popupIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes popupOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+.changelog-modal-content.popup-out {
+  animation: popupOut 0.32s cubic-bezier(.4,1.4,.6,1.0) forwards;
+}
+.changelog-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  color: #8ea1e1;
+}
+.changelog-modal-content ul {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #dbe6ff;
+}
+.changelog-ok-btn {
+  background: #5865f2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 2em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+}
+.changelog-ok-btn:hover {
+  background: #4752c4;
+  transform: scale(1.06);
+}
+@media (max-width: 700px) {
+  .changelog-modal-content {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    width: 95vw;
+  }
 }

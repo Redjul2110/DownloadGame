@@ -100,14 +100,16 @@ const spiele = [
     bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
     downloadText: "Widows11: Download", // <--- Hier geändert
     downloadDatei: "Jumper.exe",
-    downloadPfad: "game/Jumper.exe"
+    downloadPfad: "game/Jumper.exe",
+    changelog: "- Bugfixes\n- Mehr kommt noch"
   },
   // Beispiel für ein weiteres Spiel:
   // {
   //   titel: 'Jumper 2.exe',
   //   bilder: ['gameicon/4.png', 'gameicon/5.png', 'gameicon/6.png'],
   //   beschreibung: "Der Nachfolger mit neuen Features und noch mehr Spaß!",
-  //   download: 'game/Jumper2.exe'
+  //   download: 'game/Jumper2.exe',
+  //   changelog: "- Neue Power-Ups\n- Mehr Gegner\n- Soundtrack überarbeitet"
   // }
 ];
 
@@ -150,7 +152,7 @@ function incDownloadCount(key) {
 function renderSpiele(listeSpiele = spiele) {
   const liste = document.getElementById('spiele-liste');
   liste.innerHTML = '';
-  listeSpiele.forEach(spiel => {
+  listeSpiele.forEach((spiel, idx) => {
     const block = document.createElement('div');
     block.className = 'spiel-vorschau-block';
     let bilderHtml = (spiel.bilder || []).map(bild => `<img src="${bild}" alt="${spiel.titel} Vorschau" class="spiel-vorschau klein">`).join('');
@@ -162,6 +164,14 @@ function renderSpiele(listeSpiele = spiele) {
       </div>
       <button class="download-btn">${spiel.downloadText || ('Download ' + spiel.titel)}</button>
       <div class="download-hinweis">Bitte auf Download clicken &rarr;</div>
+      <button class="changelog-btn" data-idx="${idx}">Change Look</button>
+      <div class="changelog-modal" id="changelog-modal-${idx}">
+        <div class="changelog-modal-content">
+          <h3>Change Look Report</h3>
+          <pre style="text-align:left;white-space:pre-line;">${spiel.changelog || 'Noch kein Changelog vorhanden.'}</pre>
+          <button class="changelog-ok-btn">OK</button>
+        </div>
+      </div>
     `;
     block.querySelectorAll('.spiel-vorschau').forEach(img => {
       img.style.cursor = 'zoom-in';
@@ -176,6 +186,26 @@ function renderSpiele(listeSpiele = spiele) {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+    });
+    // Change Look Button Funktionalität für jedes Spiel
+    const changelogBtn = block.querySelector('.changelog-btn');
+    const changelogModal = block.querySelector('.changelog-modal');
+    const changelogOk = block.querySelector('.changelog-ok-btn');
+    const changelogContent = block.querySelector('.changelog-modal-content');
+    function closeChangelogModal() {
+      changelogContent.classList.add('popup-out');
+      setTimeout(() => {
+        changelogModal.classList.remove('open');
+        changelogContent.classList.remove('popup-out');
+      }, 320);
+    }
+    changelogBtn.addEventListener('click', () => {
+      changelogModal.classList.add('open');
+      changelogContent.classList.remove('popup-out');
+    });
+    changelogOk.addEventListener('click', closeChangelogModal);
+    changelogModal.addEventListener('click', (e) => {
+      if (e.target === changelogModal) closeChangelogModal();
     });
     liste.appendChild(block);
   });
@@ -258,3 +288,19 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Change Look Button & Modal Funktionalität
+const changelogBtn = document.getElementById('changelog-btn');
+const changelogModal = document.getElementById('changelog-modal');
+const changelogOk = document.getElementById('changelog-ok');
+if (changelogBtn && changelogModal && changelogOk) {
+  changelogBtn.addEventListener('click', () => {
+    changelogModal.classList.add('open');
+  });
+  changelogOk.addEventListener('click', () => {
+    changelogModal.classList.remove('open');
+  });
+  changelogModal.addEventListener('click', (e) => {
+    if (e.target === changelogModal) changelogModal.classList.remove('open');
+  });
+}
