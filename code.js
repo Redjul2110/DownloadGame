@@ -164,10 +164,10 @@ function renderSpiele(listeSpiele = spiele) {
       </div>
       <button class="download-btn">${spiel.downloadText || ('Download ' + spiel.titel)}</button>
       <div class="download-hinweis">Bitte auf Download clicken &rarr;</div>
-      <button class="changelog-btn" data-idx="${idx}">Change Look</button>
+      <button class="changelog-btn" data-idx="${idx}">Change Log</button>
       <div class="changelog-modal" id="changelog-modal-${idx}">
         <div class="changelog-modal-content">
-          <h3>Change Look Report</h3>
+          <h3>Change Log Report</h3>
           <pre style="text-align:left;white-space:pre-line;">${spiel.changelog || 'Noch kein Changelog vorhanden.'}</pre>
           <button class="changelog-ok-btn">OK</button>
         </div>
