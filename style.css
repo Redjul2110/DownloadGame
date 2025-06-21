@@ -663,3 +663,21 @@ body.light-mode #sonstiges .discord-link img.discord-img {
     margin-bottom: 1.2rem !important;
   }
 }
+body.light-mode .changelog-modal-content {
+  background: #fff;
+  color: #23272a;
+  box-shadow: 0 8px 32px #5865f222;
+}
+body.light-mode .changelog-modal-content h3 {
+  color: #5865f2;
+}
+body.light-mode .changelog-modal-content pre {
+  color: #23272a;
+}
+body.light-mode .changelog-ok-btn {
+  background: #5865f2;
+  color: #fff;
+}
+body.light-mode .changelog-ok-btn:hover {
+  background: #4752c4;
+}

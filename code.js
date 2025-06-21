@@ -103,6 +103,8 @@ const spiele = [
     downloadPfad: "game/Jumper.exe",
     changelog: "- Bugfixes\n- Mehr kommt noch"
   },
+
+
   // Beispiel für ein weiteres Spiel:
   // {
   //   titel: 'Jumper 2.exe',
@@ -163,7 +165,7 @@ function renderSpiele(listeSpiele = spiele) {
         ${spiel.beschreibung}
       </div>
       <button class="download-btn">${spiel.downloadText || ('Download ' + spiel.titel)}</button>
-      <div class="download-hinweis">Bitte auf Download clicken &rarr;</div>
+      <div class="download-hinweis">Bitte auf Download klicken &rarr;</div>
       <button class="changelog-btn" data-idx="${idx}">Change Log</button>
       <div class="changelog-modal" id="changelog-modal-${idx}">
         <div class="changelog-modal-content">
