@@ -553,10 +553,10 @@ body.light-mode #sonstiges .discord-link img.discord-img {
   padding: 0.7em 2em;
   font-size: 1.15rem;
   font-weight: 700;
-  background: #5865f2;
+  background: #5865f2; /* gleiche Farbe wie .download-btn */
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px; /* wie .download-btn */
   box-shadow: 0 2px 8px #5865f233;
   cursor: pointer;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
@@ -568,8 +568,8 @@ body.light-mode #sonstiges .discord-link img.discord-img {
   position: static;
 }
 .changelog-btn:hover {
-  background: #4752c4;
-  transform: scale(1.06);
+  background: #4752c4; /* wie .download-btn:hover */
+  transform: scale(1.07); /* wie .download-btn:hover */
 }
 .changelog-modal {
   /* Hintergrund komplett transparent */

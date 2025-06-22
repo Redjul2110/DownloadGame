@@ -98,7 +98,7 @@ const spiele = [
     titel: "Jumper.exe",
     beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos.",
     bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
-    downloadText: "Widows11: Download", // <--- Hier geändert
+    downloadText: "Download für Windows 11", // <--- Hier geändert
     downloadDatei: "Jumper.exe",
     downloadPfad: "game/Jumper.exe",
     changelog: "- Bugfixes\n- Mehr kommt noch"
