@@ -291,4 +291,5 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 // Change Look Button & Modal Funktionalität (veraltet, entfernt)
