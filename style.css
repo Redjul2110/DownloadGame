@@ -553,7 +553,7 @@ body.light-mode #sonstiges .discord-link img.discord-img {
   padding: 0.7em 2em;
   font-size: 1.15rem;
   font-weight: 700;
-  background: #5865f2; /* gleiche Farbe wie .download-btn */
+  background: #5865f2; /* gleiche Farbe wie  .download-btn */
   color: #fff;
   border: none;
   border-radius: 6px; /* wie .download-btn */
