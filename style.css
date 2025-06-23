@@ -85,8 +85,8 @@ h1 {
   margin-right: auto;
   width: fit-content;
   transition: none;
-  user-select: text;
   -webkit-user-select: text;
+  user-select: text;
 }
 @media (max-width: 700px) {
   h1 {
