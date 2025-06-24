@@ -105,6 +105,17 @@ const spiele = [
   },
 
 
+   {
+    titel: "Jumper.exe",
+    beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos im browser.",
+    bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
+    downloadText: "Link öffnen", // <--- Hier geändert
+    downloadDatei: "",
+    downloadPfad: "",
+    changelog: "- Bugfixes\n- Mehr kommt noch"
+  },
+
+
   // Beispiel für ein weiteres Spiel:
   // {
   //   titel: 'Jumper 2.exe',
@@ -182,12 +193,16 @@ function renderSpiele(listeSpiele = spiele) {
       });
     });
     block.querySelector('.download-btn').addEventListener('click', function() {
-      const a = document.createElement('a');
-      a.href = spiel.downloadPfad;
-      a.download = spiel.downloadDatei;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      if (spiel.downloadText === 'Link öffnen') {
+        window.open('https://redjul2110.github.io/Jumper-Web/Jumper.html', '_blank');
+      } else if (spiel.downloadPfad) {
+        const a = document.createElement('a');
+        a.href = spiel.downloadPfad;
+        a.download = spiel.downloadDatei;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
     });
     // Change Look Button Funktionalität für jedes Spiel
     const changelogBtn = block.querySelector('.changelog-btn');
