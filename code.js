@@ -109,12 +109,22 @@ const spiele = [
     titel: "Jumper.exe",
     beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos im browser.",
     bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
-    downloadText: "Link öffnen", // <--- Hier geändert
+    downloadText: "Link öffnen Jumper", // <--- Hier geändert
     downloadDatei: "",
     downloadPfad: "",
     changelog: "- Bugfixes\n- Mehr kommt noch"
   },
 
+
+  {
+    titel: "Controller Flight",
+    beschreibung: "Ein cooles Flugspiel direkt im Browser Beta.",
+    bilder: ["gameicon/4.png", "gameicon/5.png", "gameicon/6.png"],
+    downloadText: "Link öffnen Controller Flight",
+    downloadDatei: "",
+    downloadPfad: "",
+    changelog: "- Erstveröffentlichung\n- Spiele jetzt im Browser!\n-Beta"
+  }
 
   // Beispiel für ein weiteres Spiel:
   // {
@@ -193,8 +203,10 @@ function renderSpiele(listeSpiele = spiele) {
       });
     });
     block.querySelector('.download-btn').addEventListener('click', function() {
-      if (spiel.downloadText === 'Link öffnen') {
+      if (spiel.downloadText === 'Link öffnen Jumper') {
         window.open('https://redjul2110.github.io/Jumper-Web/Jumper.html', '_blank');
+      } else if (spiel.downloadText === 'Link öffnen Controller Flight') {
+        window.open('https://redjul2110.github.io/controller-flight/', '_blank');
       } else if (spiel.downloadPfad) {
         const a = document.createElement('a');
         a.href = spiel.downloadPfad;
@@ -204,6 +216,7 @@ function renderSpiele(listeSpiele = spiele) {
         document.body.removeChild(a);
       }
     });
+    
     // Change Look Button Funktionalität für jedes Spiel
     const changelogBtn = block.querySelector('.changelog-btn');
     const changelogModal = block.querySelector('.changelog-modal');
