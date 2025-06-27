@@ -118,12 +118,12 @@ const spiele = [
 
   {
     titel: "Controller Flight",
-    beschreibung: "Ein cooles Flugspiel direkt im Browser Beta.",
+    beschreibung: "Ein cooles Flugspiel direkt im Browser.",
     bilder: ["gameicon/4.png", "gameicon/5.png", "gameicon/6.png"],
     downloadText: "Link öffnen Controller Flight",
     downloadDatei: "",
     downloadPfad: "",
-    changelog: "- Erstveröffentlichung\n- Spiele jetzt im Browser!\n-Beta"
+    changelog: "- Erstveröffentlichung\n- Spiele jetzt im Browser!"
   }
 
   // Beispiel für ein weiteres Spiel:
