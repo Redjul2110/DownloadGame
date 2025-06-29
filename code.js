@@ -302,7 +302,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  // Suchfunktion für die Spiele-Liste (Titel muss mit Suchtext beginnen)
+  // Suchfunktion für die Spiele-Liste (Titel muss mit Suchtext beginnen oder spezielle Begriffe)
   const suchInput = document.getElementById('spiele-suche');
   if (suchInput) {
     suchInput.addEventListener('input', function() {
@@ -311,10 +311,28 @@ window.addEventListener('DOMContentLoaded', () => {
         renderSpiele(spiele);
         return;
       }
-      const gefiltert = spiele.filter(spiel =>
-        spiel.titel && spiel.titel.toLowerCase().startsWith(query)
-      );
-      renderSpiele(gefiltert);
+      // Wenn nach "redjul2110", "jumper" oder "games" gesucht wird, zeige alle Spiele an und einen Webseiten-Vorschlag
+      if (["redjul2110", "jumper", "games"].some(keyword => query.includes(keyword))) {
+        renderSpiele(spiele);
+        // Vorschlag für Webseite anzeigen
+        let vorschlag = document.getElementById('webseiten-vorschlag');
+        if (!vorschlag) {
+          vorschlag = document.createElement('div');
+          vorschlag.id = 'webseiten-vorschlag';
+          vorschlag.style.margin = '2rem auto 0 auto';
+          vorschlag.style.textAlign = 'center';
+          vorschlag.innerHTML = '<a href="https://redjul2110.github.io/DownloadGame/" target="_blank" style="font-size:1.3rem;font-weight:700;color:#5865f2;text-decoration:underline;">Zur Webseite von redjul2110</a>';
+          suchInput.parentElement.appendChild(vorschlag);
+        }
+      } else {
+        // Normale Filterung
+        renderSpiele(spiele.filter(spiel =>
+          spiel.titel && spiel.titel.toLowerCase().startsWith(query)
+        ));
+        // Webseiten-Vorschlag entfernen, falls vorhanden
+        const vorschlag = document.getElementById('webseiten-vorschlag');
+        if (vorschlag) vorschlag.remove();
+      }
     });
   }
 });
