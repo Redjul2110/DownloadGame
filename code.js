@@ -329,10 +329,21 @@ window.addEventListener('DOMContentLoaded', () => {
       const query = this.value.trim().toLowerCase();
       if (!query) {
         renderSpiele(spiele);
+        // Webseiten-Vorschlag entfernen, falls vorhanden
+        const vorschlag = document.getElementById('webseiten-vorschlag');
+        if (vorschlag) vorschlag.remove();
         return;
       }
-      // Wenn nach "redjul2110", "jumper" oder "games" gesucht wird, zeige alle Spiele an und einen Webseiten-Vorschlag
-      if (["redjul2110", "jumper", "games"].some(keyword => query.includes(keyword))) {
+      // Zusätzliche Keywords für Webseiten-Vorschlag
+      const keywords = [
+        "redjul2110",
+        "jumper",
+        "games",
+        "download game",
+        "game download",
+        "controller flight"
+      ];
+      if (keywords.some(keyword => query.includes(keyword))) {
         renderSpiele(spiele);
         // Vorschlag für Webseite anzeigen
         let vorschlag = document.getElementById('webseiten-vorschlag');
