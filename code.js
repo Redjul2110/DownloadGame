@@ -222,14 +222,34 @@ function renderSpiele(listeSpiele = spiele) {
     const changelogModal = block.querySelector('.changelog-modal');
     const changelogOk = block.querySelector('.changelog-ok-btn');
     const changelogContent = block.querySelector('.changelog-modal-content');
+    // Hilfsfunktion: Modal zurück in den Block verschieben
+    function restoreChangelogModal() {
+      if (!block.contains(changelogModal)) {
+        block.appendChild(changelogModal);
+      }
+    }
     function closeChangelogModal() {
       changelogContent.classList.add('popup-out');
       setTimeout(() => {
         changelogModal.classList.remove('open');
         changelogContent.classList.remove('popup-out');
+        restoreChangelogModal();
       }, 320);
     }
     changelogBtn.addEventListener('click', () => {
+      // Alle anderen Changelog-Modals schließen
+      document.querySelectorAll('.changelog-modal.open').forEach(modal => {
+        modal.classList.remove('open');
+        const content = modal.querySelector('.changelog-modal-content');
+        if(content) content.classList.remove('popup-out');
+        // Modal zurück in den Block verschieben, falls nötig
+        const parentBlock = modal.closest('.spiel-vorschau-block');
+        if (parentBlock && !parentBlock.contains(modal)) {
+          parentBlock.appendChild(modal);
+        }
+      });
+      // Modal in den Body verschieben, damit es immer ganz oben ist
+      document.body.appendChild(changelogModal);
       changelogModal.classList.add('open');
       changelogContent.classList.remove('popup-out');
     });
