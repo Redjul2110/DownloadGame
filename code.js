@@ -94,6 +94,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // === Dynamische Spiele-Liste ===
 const spiele = [
+
+{
+    titel: "Web App für Windows 11",
+    beschreibung: "Web App.",
+    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
+    downloadText: "Download für Windows 11", // <--- Hier geändert
+    downloadDatei: "",
+    downloadPfad: "",
+    changelog: ""
+  },
+
   {
     titel: "Jumper.exe",
     beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos.",
