@@ -96,13 +96,13 @@ window.addEventListener('DOMContentLoaded', () => {
 const spiele = [
 
 {
-    titel: "Web App für Windows 11",
-    beschreibung: "Web App.",
+    titel: "Discord",
+    beschreibung: "Discord.",
     bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
-    downloadText: "Download datai", // <--- Hier geändert
+    downloadText: "Join Discord", // <--- Hier geändert
     downloadDatei: "",
     downloadPfad: "",
-    changelog: "none"
+    changelog: ""
   },
 
   {
@@ -218,8 +218,8 @@ function renderSpiele(listeSpiele = spiele) {
         window.open('https://redjul2110.github.io/Jumper-Web/Jumper.html', '_blank');
       } else if (spiel.downloadText === 'Link öffnen Controller Flight') {
         window.open('https://redjul2110.github.io/controller-flight/', '_blank');
-        } else if (spiel.downloadText === 'Download datai') {
-        window.open('https://chat.whatsapp.com/FWaA80lV14f04DQG0V2fAx?mode=r_t', '_blank');
+        } else if (spiel.downloadText === 'Join Discord') {
+        window.open('https://discord.gg/KcMQffBdpw', '_blank');
       } else if (spiel.downloadPfad) {
         const a = document.createElement('a');
         a.href = spiel.downloadPfad;
