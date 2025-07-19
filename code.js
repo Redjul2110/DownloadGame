@@ -110,8 +110,8 @@ const spiele = [
     beschreibung: "Enthelt alle spiele.",
     bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
     downloadText: "Download für Windows 11", // <--- Hier geändert
-    downloadDatei: "GameDownloadWindows11.exe",
-    downloadPfad: "app/GameDownloadWindows11.exe",
+    downloadDatei: "DownloadApp.exe",
+    downloadPfad: "app/DownloadApp.exe",
     changelog: ""
   },
 
