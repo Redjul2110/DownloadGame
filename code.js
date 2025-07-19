@@ -112,7 +112,7 @@ const spiele = [
     downloadText: "Download für Windows 11", // <--- Hier geändert
     downloadDatei: "DownloadApp.exe",
     downloadPfad: "app/DownloadApp.exe",
-    changelog: ""
+    changelog: "none"
   },
 
   {
