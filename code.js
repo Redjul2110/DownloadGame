@@ -106,6 +106,16 @@ const spiele = [
   },
 
   {
+    titel: "Web App",
+    beschreibung: "Enthelt alle spiele.",
+    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
+    downloadText: "Download für Windows 11", // <--- Hier geändert
+    downloadDatei: "GameDownloadWindows11.exe",
+    downloadPfad: "game/GameDownloadWindows11.exe",
+    changelog: " "
+  },
+
+  {
     titel: "Jumper.exe",
     beschreibung: "Ein cooles Jump'n'Run-Spiel komplet kostenlos.",
     bilder: ["gameicon/1.png", "gameicon/2.png", "gameicon/3.png"],
