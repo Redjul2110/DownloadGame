@@ -95,16 +95,6 @@ window.addEventListener('DOMContentLoaded', () => {
 // === Dynamische Spiele-Liste ===
 const spiele = [
 
-{
-    titel: "Discord",
-    beschreibung: "Discord.",
-    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
-    downloadText: "Join Discord", // <--- Hier geändert
-    downloadDatei: "",
-    downloadPfad: "",
-    changelog: ""
-  },
-
   {
     titel: "Web App",
     beschreibung: "Enthelt alle spiele.",
@@ -113,6 +103,16 @@ const spiele = [
     downloadDatei: "DownloadApp.exe",
     downloadPfad: "app/DownloadApp.exe",
     changelog: "none"
+  },
+
+{
+    titel: "Discord",
+    beschreibung: "Discord.",
+    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
+    downloadText: "Join Discord", // <--- Hier geändert
+    downloadDatei: "",
+    downloadPfad: "",
+    changelog: ""
   },
 
   {
