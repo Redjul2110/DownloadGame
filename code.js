@@ -95,16 +95,6 @@ window.addEventListener('DOMContentLoaded', () => {
 // === Dynamische Spiele-Liste ===
 const spiele = [
 
-  {
-    titel: "Web App",
-    beschreibung: "Enthelt alle spiele.",
-    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
-    downloadText: "Download für Windows 11", // <--- Hier geändert
-    downloadDatei: "DownloadApp.exe",
-    downloadPfad: "app/DownloadApp.exe",
-    changelog: "none"
-  },
-
 {
     titel: "Discord",
     beschreibung: "Discord.",
@@ -113,6 +103,16 @@ const spiele = [
     downloadDatei: "",
     downloadPfad: "",
     changelog: ""
+  },
+
+    {
+    titel: "Web App",
+    beschreibung: "Enthelt alle spiele.",
+    bilder: ["icon/main.png", "icon/main.png", "icon/main.png"],
+    downloadText: "Download für Windows 11", // <--- Hier geändert
+    downloadDatei: "DownloadApp.exe",
+    downloadPfad: "https://github.com/Redjul2110/DownloadGame/releases/download/1.0.3/DownloadApp.exe",
+    changelog: "none"
   },
 
   {
