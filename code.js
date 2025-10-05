@@ -391,5 +391,60 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// -------------------------
+// New-site popup (Anzeige beim ersten Besuch)
+// -------------------------
+function createNewsiteModal() {
+  // Zeige das Popup immer (auch nach Neuladen)
+  const overlay = document.createElement('div');
+  overlay.className = 'newsite-modal';
+
+  const content = document.createElement('div');
+  content.className = 'newsite-modal-content';
+  content.innerHTML = `
+    <h3>Neue Webseite verfügbar</h3>
+    <p>Ich habe eine neue Webseite erstellt. Möchtest du sie jetzt besuchen?</p>
+    <div class="newsite-actions">
+      <button class="newsite-btn-visit">Zur neuen Webseite</button>
+      <button class="newsite-btn-close">Schließen</button>
+    </div>
+  `;
+
+  overlay.appendChild(content);
+  document.body.appendChild(overlay);
+
+  const visitBtn = content.querySelector('.newsite-btn-visit');
+  const closeBtn = content.querySelector('.newsite-btn-close');
+
+  function closeModal() {
+    overlay.remove();
+  }
+
+  visitBtn.addEventListener('click', () => {
+    // öffnet die Zielseite in neuem Tab
+    window.open('https://redjgames.wixsite.com/redjgames', '_blank');
+    closeModal();
+  });
+
+  closeBtn.addEventListener('click', () => closeModal());
+
+  // Klick außerhalb des Inhalts schließt das Modal
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal(true);
+  });
+
+  // Escape schließt das Modal (ohne Besuch speichern)
+  function onKey(e) {
+    if (e.key === 'Escape') { closeModal(true); document.removeEventListener('keydown', onKey); }
+  }
+  document.addEventListener('keydown', onKey);
+}
+
+// Zeige das Modal kurz nach Laden
+window.addEventListener('load', () => {
+  // kleine Verzögerung für bessere UX
+  setTimeout(() => createNewsiteModal(), 600);
+});
+
 
 // Change Look Button & Modal Funktionalität (veraltet, entfernt)

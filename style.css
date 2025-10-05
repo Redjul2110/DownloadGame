@@ -685,3 +685,45 @@ body.light-mode .changelog-ok-btn {
 body.light-mode .changelog-ok-btn:hover {
   background: #4752c4;
 }
+
+/* New-site popup (shown on first load) */
+.newsite-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 11000; /* above header/changelog */
+}
+.newsite-modal.hidden { display: none; }
+.newsite-modal-content {
+  background: #23272a;
+  color: #f1f1f1;
+  padding: 1.6rem 1.8rem;
+  border-radius: 12px;
+  width: min(520px, 92vw);
+  max-width: 92vw;
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+}
+.newsite-modal-content h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.35rem;
+  color: #8ea1e1;
+}
+.newsite-modal-content p { margin: 0 0 1rem 0; color: #dbe6ff; }
+.newsite-actions { display:flex; gap:0.6rem; justify-content:center; align-items:center; }
+.newsite-btn-visit, .newsite-btn-close {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight:700;
+}
+.newsite-btn-visit { background: #5865f2; color: #fff; }
+.newsite-btn-visit:hover { background: #4752c4; }
+.newsite-btn-close { background: #44484d; color: #fff; }
+.newsite-btn-close:hover { background: #5a5f66; }
