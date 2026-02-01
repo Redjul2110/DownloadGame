@@ -422,7 +422,7 @@ function createNewsiteModal() {
 
   visitBtn.addEventListener('click', () => {
     // öffnet die Zielseite in neuem Tab
-    window.open('https://redjul2110.wixsite.com/redjgames', '_blank');
+    window.open('https://redjul2110.github.io/RedJGames/', '_blank');
     closeModal();
   });
 
